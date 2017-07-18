@@ -13,12 +13,12 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name = "old_driver_record")
-@SequenceGenerator(name = "seq_old_driver_record", sequenceName = "seq_old_driver_record")
+@Table(name = "old_driver")
+@SequenceGenerator(name = "seq_old_driver", sequenceName = "seq_old_driver")
 public class OldDriver {
 
     @Id
-    @GeneratedValue(generator = "seq_old_driver_record", strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(generator = "seq_old_driver", strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @Column
