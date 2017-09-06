@@ -1,5 +1,8 @@
 package com.od.oh.model.domain;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,6 +18,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "old_driver")
 @SequenceGenerator(name = "seq_old_driver", sequenceName = "seq_old_driver")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class OldDriver {
 
     @Id
@@ -48,5 +52,10 @@ public class OldDriver {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "OldDriver{" + "id=" + id + ", name='" + name + '\'' + ", age=" + age + '}';
     }
 }

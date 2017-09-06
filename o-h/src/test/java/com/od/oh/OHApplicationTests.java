@@ -6,13 +6,10 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import com.od.oh.model.domain.OldDriver;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest
 public class OHApplicationTests {
 
@@ -32,8 +29,22 @@ public class OHApplicationTests {
 
         OldDriver od = new OldDriver();
         session.beginTransaction();
-        session.save(od);
+        // session.save(od);
+        // session.delete(od);
+        // session.update(od);
+
+        session.load(OldDriver.class, 1L);
+
+        System.out.println("=======================第一次查询======================= session --> " + session.hashCode());
+        System.out
+                .println("=======================End======================= --> " + session.find(OldDriver.class, 1L));
         session.getTransaction().commit();
+        // session.update(od);
+
+        Session session2 = sessionFactory.openSession();
+        System.out.println("=======================第二次查询======================= session --> " + session.hashCode());
+        System.out.println(
+                "=======================End======================= ---> " + session2.find(OldDriver.class, 1L));
 
     }
 

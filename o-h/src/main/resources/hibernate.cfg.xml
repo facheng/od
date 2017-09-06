@@ -14,5 +14,15 @@
         <property name="hibernate.format_sql">true</property>
         <!--<mapping resource=""/>-->
         <!--<mapping resource=""/>-->
+
+        <!-- 开启二级缓存 ehcache -->
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+        <!-- 开启查询的二级缓存  如果不需要就不设置-->
+        <property name="hibernate.cache.use_query_cache">true</property>
+        <!-- Hibernate4.0以上设置factory -->
+        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory
+        </property>
+        <!-- 二级缓存 ehcache的配置文件位置 -->
+        <property name="hibernate.cache.provider_configuration_file_resource_path">ehcache.xml</property>
     </session-factory>
 </hibernate-configuration>
