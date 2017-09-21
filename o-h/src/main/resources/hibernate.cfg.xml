@@ -10,7 +10,7 @@
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
         <property name="hibernate.connection.url">jdbc:postgresql://192.168.6.199:5432/od</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
-        <property name="hibernate.show_sql">false</property>
+        <property name="hibernate.show_sql">true</property>
         <property name="hibernate.format_sql">true</property>
         <!--<mapping resource=""/>-->
         <!--<mapping resource=""/>-->
@@ -21,6 +21,7 @@
         <property name="hibernate.cache.use_query_cache">true</property>
         <!-- Hibernate4.0以上设置factory -->
         <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory
+        <!--<property name="hibernate.cache.region.factory_class">com.od.redis.region.RedisRegionFactory-->
         </property>
         <!-- 二级缓存 ehcache的配置文件位置 -->
         <property name="hibernate.cache.provider_configuration_file_resource_path">ehcache.xml</property>

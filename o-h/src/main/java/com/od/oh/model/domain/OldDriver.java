@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 /**
  * Created by wangfacheng on 2017-07-18.
@@ -19,7 +20,7 @@ import javax.persistence.Table;
 @Table(name = "old_driver")
 @SequenceGenerator(name = "seq_old_driver", sequenceName = "seq_old_driver")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class OldDriver {
+public class OldDriver implements Serializable {
 
     @Id
     @GeneratedValue(generator = "seq_old_driver", strategy = GenerationType.SEQUENCE)

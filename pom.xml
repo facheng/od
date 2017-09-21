@@ -15,6 +15,7 @@
         <module>o-h</module>
         <module>o-s</module>
         <module>o-sh</module>
+        <module>h-redis</module>
     </modules>
 
     <build>

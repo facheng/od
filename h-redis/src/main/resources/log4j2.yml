@@ -7,12 +7,12 @@ Configuration:
       #生产：-Dlog.level.console=warn -Dlog.level.oh=info
       - name: log.level.console
         value: info
-      - name: log.level.oh
+      - name: log.level.redis
         value: info
       - name: log.path
         value: /home/facheng/backup
       - name: project.name
-        value: oh
+        value: h-redis
 
   Appenders:
     Console:  #输出到控制台
@@ -39,16 +39,14 @@ Configuration:
 
   Loggers:
     Root:
-      level: debug
+      level: info
       AppenderRef:
         - ref: CONSOLE
         - ref: ROLLING_FILE
     Logger: # 包配置特殊的Log级别，方便调试
-      - name: com.od.oh
+      - name: com.od.redis
         additivity: false
-        level: ${sys:log.level.oh}
+        level: ${sys:log.level.redis}
         AppenderRef:
           - ref: CONSOLE
           - ref: ROLLING_FILE
-      - name: org.hibernate.SQL
-        level: debug
