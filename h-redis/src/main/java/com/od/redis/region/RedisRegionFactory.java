@@ -19,6 +19,8 @@ public class RedisRegionFactory extends AbstractRedisRegionFactory {
     @Override
     public void start(SessionFactoryOptions settings, Properties properties) throws CacheException {
 
+        LOGGER.info("Welcome access redis region factory");
+
         if (manager != null) {
             LOGGER.info("manager is already, manager {}", manager);
             return;
